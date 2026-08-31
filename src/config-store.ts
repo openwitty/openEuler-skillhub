@@ -14,7 +14,7 @@ export function defaultSkillsDir(): string {
 }
 
 export function overlayPath(): string {
-  return join(dshHome(), 'open-euler-skillhub.json')
+  return join(dshHome(), 'openeuler-skillhub.json')
 }
 
 export function sanitizeSortBy(raw: unknown, fallback: SortBy = 'updated_at'): SortBy {
@@ -79,7 +79,7 @@ export function withDefaults(config: Partial<PluginConfig>): PluginConfig {
     webBase: config.webBase || 'https://skillhub.openeuler.org',
     skillsDir: config.skillsDir || defaultSkillsDir(),
     timeoutMs: config.timeoutMs || 20000,
-    userAgent: config.userAgent || 'Mozilla/5.0 (compatible; open-euler-skillhub/0.1)',
+    userAgent: config.userAgent || 'Mozilla/5.0 (compatible; openeuler-skillhub/0.1)',
     maxResults: config.maxResults || 12,
     sortBy: sanitizeSortBy(config.sortBy, 'updated_at'),
   }

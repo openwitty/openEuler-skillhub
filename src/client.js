@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: "open-euler-skillhub",
+  id: "openeuler-skillhub",
   factory: (require) => {
     const React = require("react");
     const h = React.createElement;
@@ -453,7 +453,7 @@ window.__ModuleLoader__.load({
           h("span",{className:"oh-installed-title"},"已安装 Skill"),
           h("span",{className:"oh-installed-count"},"共 "+list.length+" 个")),
         list.length === 0
-          ? h("div",{className:"oh-empty"},"暂无已安装的 Skill。回到「技能广场」打开技能详情即可安装。")
+          ? h("div",{className:"oh-empty"},"暂无已安装的 Skill，回到「技能广场」打开技能详情即可安装。")
           : h("div",{className:"oh-installed-list"},
               list.map(it=>h("div",{key:it.slug,className:"oh-installed-item"},
                 h("div",{className:"oh-installed-main"},
@@ -788,10 +788,10 @@ window.__ModuleLoader__.load({
     function apply(ctx) {
       const slots = ctx.slots;
       if (!slots) return;
-      ctx.effect(() => ensureCss(window), "open-euler-skillhub-style");
+      ctx.effect(() => ensureCss(window), "openeuler-skillhub-style");
       slots.inject("sidebar.footer.action", () => registerSlot(
         slots,
-        { name: "sidebar.footer.action", id: "open-euler-skillhub-plaza", order: 8, label: () => "技能广场", locale: "open-euler-skillhub" },
+        { name: "sidebar.footer.action", id: "openeuler-skillhub-plaza", order: 8, label: () => "技能广场", locale: "openeuler-skillhub" },
         function PlazaEntry(actionProps) {
           return h(PlazaAction, { wide: !!actionProps.wide });
         },

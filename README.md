@@ -27,7 +27,7 @@ DeepSeek Harness（`dsh`）插件：openEuler 社区技能管理平台（WittyHu
 在 dsh 环境（例如 `~/.dsh/profiles/web/plugins` 或全局插件目录）中安装本插件：
 
 ```sh
-dsh plugin --profile web add open-euler-skillhub
+dsh plugin --profile web add openeuler-skillhub
 ```
 
 本地开发时，构建后复制或引用本仓库路径即可。
@@ -45,7 +45,7 @@ dsh plugin --profile web add open-euler-skillhub
 
 ## 配置
 
-配置项可通过 dsh 插件设置页或 `config.ts` 覆盖，也可以在 `$DSH_HOME/open-euler-skillhub.json` 中持久化（设置页保存时写入）：
+配置项可通过 dsh 插件设置页或 `config.ts` 覆盖，也可以在 `$DSH_HOME/openeuler-skillhub.json` 中持久化（设置页保存时写入）：
 
 | 字段 | 默认 | 说明 |
 |------|------|------|
