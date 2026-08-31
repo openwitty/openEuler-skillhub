@@ -9,7 +9,7 @@ import { installSkill, installedSlugs, listInstalled, uninstallSkill } from './i
 import { handleApi } from './local-api.js'
 import type { InstallResult, InstalledSkill, PluginConfig, SearchResult, SortBy } from './types.js'
 
-export const name = 'open-euler-skillhub'
+export const name = 'openeuler-skillhub'
 export const inject = ['tools']
 
 export interface Config extends PluginConfig {}
@@ -19,7 +19,7 @@ export const Config: Schema<Config> = Schema.object({
   webBase: Schema.string().default('https://skillhub.openeuler.org').description('技能主页'),
   skillsDir: Schema.string().description('安装目录，默认 $DSH_HOME/skills'),
   timeoutMs: Schema.number().default(20000).description('上游请求超时（毫秒）'),
-  userAgent: Schema.string().default('Mozilla/5.0 (compatible; open-euler-skillhub/0.1)').description('请求 UA'),
+  userAgent: Schema.string().default('Mozilla/5.0 (compatible; openeuler-skillhub/0.1)').description('请求 UA'),
   maxResults: Schema.number().default(12).description('搜索结果上限'),
   sortBy: Schema.union(['updated_at', 'download_count'] as const).default('updated_at').description('默认排序'),
 })
@@ -153,7 +153,7 @@ export function apply(ctx: Context, config: Config): void {
       }
     }).systemPrompt
     prompt.section({
-      name: 'tool:open-euler-skillhub',
+      name: 'tool:openeuler-skillhub',
       order: 210,
       text: [
         'Finding / recommending / browsing openEuler Agent Skills or SkillHub skills: you MUST call ohub_search. Never web_search, skill-catalog, load_skill, bash, or SKILL.md dump. Never print skillhub install, curl, or sh -c.',
@@ -173,12 +173,12 @@ export function apply(ctx: Context, config: Config): void {
   })
 
   // 插件配置页按 Host settings 命名空间分发 settings.plugin.item。
-  // 不登记 open-euler-skillhub 的话，客户端卡片永远不会被 dispatch。
+  // 不登记 openeuler-skillhub 的话，客户端卡片永远不会被 dispatch。
   ctx.inject(['settings'], (c) => {
     const settings = (c as unknown as {
       settings: { register: (ns: string, schema: typeof Config, options?: { base?: Config }) => void }
     }).settings
-    settings.register('open-euler-skillhub', Config, { base: config })
+    settings.register('openeuler-skillhub', Config, { base: config })
   })
 }
 
