@@ -69,7 +69,7 @@
       "@semantic-release/github",
       {
         "assets": [
-          { "path": "dist/*.tgz", "label": "test-skillhub-${nextRelease.version}.tgz" }
+          { "path": "dist/*.tgz", "label": "${nextRelease.name}.tgz" }
         ],
         "successComment": false,
         "failComment": false,
